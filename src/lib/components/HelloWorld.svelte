@@ -1,4 +1,4 @@
-<!-- <script lang="ts">
+<script lang="ts">
 	import { FILES, GlobalState, preventDefault } from '$lib/commands.svelte';
 	import { Input } from '$lib/components/ui/input/index';
 	import { Button } from '$lib/components/ui/button/index';
@@ -73,4 +73,4 @@
 			</div>
 		</form>
 	</Content>
-</Card> -->
+</Card>

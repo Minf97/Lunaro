@@ -2,8 +2,6 @@
 	// import HelloWorld from '$lib/components/HelloWorld.svelte';
 	import AppSideBar from '$lib/components/AppSideBar.svelte';
 	import * as Sidebar from '$lib/components/ui/sidebar';
-
-	let { children } = $props();
 </script>
 
 <main
@@ -11,10 +9,7 @@
 >
 	<Sidebar.Provider>
 		<AppSideBar />
-		<main>
-			<Sidebar.Trigger />
-			{@render children?.()}
-		</main>
+		<Sidebar.Trigger />
 	</Sidebar.Provider>
 	<!-- <HelloWorld /> -->
 </main>
