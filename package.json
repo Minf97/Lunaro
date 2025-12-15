@@ -15,7 +15,8 @@
 		"check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"tauri": "tauri"
+		"tauri": "tauri",
+		"prepare": "husky install"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.9",
@@ -37,7 +38,9 @@
 		"tw-animate-css": "^1.3.0",
 		"typescript": "~5.8.3",
 		"typescript-eslint": "^8.32.1",
-		"vite": "^6.3.5"
+		"vite": "^6.3.5",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.4.3"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.7",
@@ -46,5 +49,13 @@
 		"clsx": "^2.1.1",
 		"tailwind-merge": "^3.3.0",
 		"tailwindcss": "^4.1.7"
+	},
+	"lint-staged": {
+		"*.{js,ts,svelte,jsx,tsx,css,md}": [
+			"prettier --write"
+		],
+		"*.{js,ts,svelte,jsx,tsx}": [
+			"eslint --fix"
+		]
 	}
 }
