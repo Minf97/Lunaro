@@ -1,6 +1,6 @@
 1. 本地 pgsql + drizzle 实现本地服务端? 切入口是 Search 组件，要实现前后端交互
-2. 本地 eslint 没配置好，比如每次保存自动格式化代码
+2. 本地 eslint 没配置好，比如每次保存自动格式化代码✅
 3. 多元参考壁纸库，看侧边栏 or 菜单栏是怎么实现的，参考 UI
-4. tauri 的控制台如何打开？
+4. tauri 的控制台如何打开？✅
    前端：command + shift + i
    后端 rust： `log::info!("hello world");` `log::error!("hello error");`
