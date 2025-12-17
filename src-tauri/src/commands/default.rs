@@ -13,3 +13,9 @@ pub fn write(path: String, contents: String) -> Result<(), Error> {
     fs::write(path, contents)?;
     Ok(())
 }
+
+#[tauri::command]
+pub fn write_binary(path: String, contents: Vec<u8>) -> Result<(), Error> {
+    fs::write(path, contents)?;
+    Ok(())
+}

@@ -2,14 +2,14 @@
 	// import HelloWorld from '$lib/components/HelloWorld.svelte';
 	import AppSideBar from '$lib/components/AppSideBar.svelte';
 	import * as Sidebar from '$lib/components/ui/sidebar';
+	import WallpaperList from '$lib/components/WallpaperList.svelte';
 </script>
 
-<main
-	class="flex min-h-screen select-none items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4"
->
+<main class="justify-centerp-4 flex min-h-screen items-center select-none">
 	<Sidebar.Provider>
 		<AppSideBar />
 		<Sidebar.Trigger />
+		<WallpaperList />
 	</Sidebar.Provider>
 	<!-- <HelloWorld /> -->
 </main>
