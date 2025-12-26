@@ -9,30 +9,60 @@
 
 	$inspect(wallpapers);
 
-	onMount(async () => {
+	onMount(() => {
+		// 初始加载壁纸
+		(async () => {
+			try {
+				const { photos } = await fetchCuratedWallpapers(1, 30);
+
+				// 保存到数据库
+				//    for (const photo of photos) {
+				//      await savePicture({
+				//        pexelsId: photo.id,
+				//        photographer: photo.photographer,
+				//        photographerUrl: photo.photographer_url,
+				//        originalUrl: photo.src.large,
+				//        thumbnailUrl: photo.src.medium,
+				//        width: photo.width,
+				//        height: photo.height,
+				//      });
+				//    }
+
+				wallpapers = photos;
+			} catch (error) {
+				console.error('Failed to load wallpapers:', error);
+			} finally {
+				loading = false;
+			}
+		})();
+
+		// 监听 Cmd+R 快捷键刷新壁纸列表
+		const handleKeyPress = (e: KeyboardEvent) => {
+			if ((e.metaKey || e.ctrlKey) && e.key === 'r') {
+				e.preventDefault();
+				refreshWallpapers();
+			}
+		};
+
+		window.addEventListener('keydown', handleKeyPress);
+
+		return () => {
+			window.removeEventListener('keydown', handleKeyPress);
+		};
+	});
+
+	// 刷新壁纸列表
+	async function refreshWallpapers() {
+		loading = true;
 		try {
 			const { photos } = await fetchCuratedWallpapers(1, 30);
-
-			// 保存到数据库
-			//    for (const photo of photos) {
-			//      await savePicture({
-			//        pexelsId: photo.id,
-			//        photographer: photo.photographer,
-			//        photographerUrl: photo.photographer_url,
-			//        originalUrl: photo.src.large,
-			//        thumbnailUrl: photo.src.medium,
-			//        width: photo.width,
-			//        height: photo.height,
-			//      });
-			//    }
-
 			wallpapers = photos;
 		} catch (error) {
-			console.error('Failed to load wallpapers:', error);
+			console.error('Failed to refresh wallpapers:', error);
 		} finally {
 			loading = false;
 		}
-	});
+	}
 
 	async function setWallpaper(imageUrl: string) {
 		try {

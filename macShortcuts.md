@@ -1,0 +1,8 @@
+- ⌘ - Command
+- ⇧ - Shift
+- ⌥ - Option/Alt
+- ⌃ - Control
+- ↩ - Return/Enter
+- ⌫ - Delete
+- ⇪ - Caps Lock
+- ⎋ - Escape

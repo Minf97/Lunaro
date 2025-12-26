@@ -1,8 +1,7 @@
 mod commands;
-use commands::default::{read, write, write_binary};
+use commands::default::{delete_folder_contents, open_folder, read, write, write_binary};
 use commands::shortcuts;
 use commands::wallpaper::{get_wallpaper_dir, set_wallpaper_macos};
-use tauri::Manager;
 
 #[allow(clippy::missing_panics_doc)]
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -27,6 +26,8 @@ pub fn run() {
             read,
             write,
             write_binary,
+            open_folder,
+            delete_folder_contents,
             set_wallpaper_macos,
             get_wallpaper_dir
         ])
